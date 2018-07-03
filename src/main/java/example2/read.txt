@@ -1,0 +1,12 @@
+该包内容模仿struts2 ，自己做了一个 model模型
+修改MyFreemarkerManager的 createObjectWrapper()中 true 或者false
+改变 map的处理方法
+
+map的默认是 false时候的处理费处理方式
+
+map?keys 包括方法
+
+struts2提供了  ScopesHashModel来设置这种情况
+当为false的时候 还是原来的样式
+
+党委true的时候 ，值显示数据
