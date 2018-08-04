@@ -15,3 +15,5 @@ ${key}
 ${.globals.share}
 
 ${.version}
+${list?min}
+${list?max}
