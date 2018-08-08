@@ -3,6 +3,7 @@ package example1;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class Main
 		Configuration configuration = new Configuration();
 		configuration.setClassForTemplateLoading(new Main().getClass(), "/example1");
 		configuration.setSharedVariable("share", "全局共享");
-		configuration.setNumberFormat("0.####");
+		configuration.setNumberFormat("0.##;; roundingMode=halfUp");
 		
 		Template template = configuration.getTemplate("index.ftl");
 		Map<Object,Object> root =new HashMap<Object, Object>();
@@ -31,6 +32,9 @@ public class Main
 		root.put("user", new User());
 		root.put("A strange name!", "一个特殊的名字");//改名字 有空格等特殊符号，于是这样取得${.vars['A strange name!']}
 		root.put("list", Arrays.asList(1.256, 12.87455, 1.18, 1.257));
+		root.put("f", 172.525f);
+		root.put("f1", new BigDecimal(172.525f));
+		System.out.println(root.get("f"));
 		
 		Writer out =new OutputStreamWriter(System.out);
 		template.process(root, out);
