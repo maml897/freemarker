@@ -24,13 +24,22 @@ public class Main
 		configuration.setClassForTemplateLoading(new Main().getClass(), "/jigndu");
 		Template template = configuration.getTemplate("index.ftl");
 
+		// configuration.setObjectWrapper(new MyDefaultObjectWrapper());
+
+		MyBeanWraper bw = new MyBeanWraper();
+		bw.setSimpleMapWrapper(true);
+		configuration.setObjectWrapper(bw);
+
 		Map<Object,Object> root =new HashMap<Object, Object>();
 		root.put("float", 172.525f);
+		root.put("float1", 162.535d);
 		Writer out =new OutputStreamWriter(System.out);
 		template.process(root, out);
 
 		float f = 128.525f;
 		double d = new BigDecimal(String.valueOf(f)).doubleValue();
+		double d1 = f;
+		System.out.println(d1);
 		System.out.println(d);
 	}
 }
