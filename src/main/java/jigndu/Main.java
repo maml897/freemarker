@@ -33,9 +33,12 @@ public class Main
 		Map<Object,Object> root =new HashMap<Object, Object>();
 		root.put("float", 172.525f);
 		root.put("float1", 162.535d);
+		root.put("float2", 162.535);
 		Writer out =new OutputStreamWriter(System.out);
 		template.process(root, out);
 
+		///////////////////////////////////////////////////////////////
+		System.out.println("===============================================");
 		float f = 128.525f;
 		double d = new BigDecimal(String.valueOf(f)).doubleValue();
 		double d1 = f;

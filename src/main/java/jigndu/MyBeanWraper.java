@@ -14,25 +14,25 @@ public class MyBeanWraper extends BeansWrapper
 {
 	protected ModelFactory getModelFactory(Class clazz)
 	{
-		if (Float.class.isAssignableFrom(clazz))
+		if (Float.class.isAssignableFrom(clazz) || Double.class.isAssignableFrom(clazz))
 		{
-			return FloatModel.FACTORY;
+			return BigDecimalModel.FACTORY;
 		}
 
 		return super.getModelFactory(clazz);
 	}
 
-	private final static class FloatModel extends BeanModel implements TemplateNumberModel
+	private final static class BigDecimalModel extends BeanModel implements TemplateNumberModel
 	{
 		static final ModelFactory FACTORY = new ModelFactory()
 		{
 			public TemplateModel create(Object object, ObjectWrapper wrapper)
 			{
-				return new FloatModel(object, (BeansWrapper) wrapper);
+				return new BigDecimalModel(object, (BeansWrapper) wrapper);
 			}
 		};
 
-		public FloatModel(Object bg, BeansWrapper wrapper)
+		public BigDecimalModel(Object bg, BeansWrapper wrapper)
 		{
 			super(bg, wrapper);
 		}
