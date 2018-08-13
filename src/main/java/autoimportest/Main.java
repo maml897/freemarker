@@ -1,5 +1,6 @@
 package autoimportest;
 
+import java.io.File;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.HashMap;
@@ -15,8 +16,9 @@ public class Main
 	public static void main(String[] args)throws Exception
 	{
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
-		configuration.setClassForTemplateLoading(new Main().getClass(), "/autoimportest");
-
+		//configuration.setClassForTemplateLoading(new Main().getClass(), "/autoimportest");
+		configuration.setDirectoryForTemplateLoading(new File(new Main().getClass().getResource("").getPath()));
+		
 		Map<String, String> map = new HashMap<>();
 		map.put("a", "m.ftl");
 		configuration.setAutoImports(map);
