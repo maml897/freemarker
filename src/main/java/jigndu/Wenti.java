@@ -8,9 +8,10 @@ public class Wenti
 {
 	public static void main(String[] args)
 	{
-		double d = 301353.040998999883584678173065185546875d;
+		Double d = 301353.040998999883584678173065185546875d;
 		System.out.println(d);
 		System.out.println(String.valueOf(d));
+		System.out.println(d.toString());
 
 		double d1 = 301353.0499999999883584678173065185546875d;
 		System.out.println(d1);
@@ -19,6 +20,7 @@ public class Wenti
 		float f = 172.252f;
 		double d2 = f;
 		System.out.println(d2);
+
 
 		// 使用BigDecimal(double val)构造函数时仍会存在精度丢失问题，建议使用BigDecimal(String val)
 		// BigDecimal都建议使用字符串传值，传double也不行
