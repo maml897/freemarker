@@ -32,6 +32,7 @@ public class Main
 
 		Map<Object,Object> root =new HashMap<Object, Object>();
 		root.put("float", 172.525f);
+		root.put("int", 172);
 		root.put("double", 162.535d);
 		root.put("double2", 162.535);
 		root.put("double3", 301353.040999999883584678173065185546875d);
